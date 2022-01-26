@@ -68,13 +68,284 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
+DROP TABLE IF EXISTS movies ;
+DROP TABLE IF EXISTS actors ;
 
 -- Create new tables, according to your domain model
 -- TODO!
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year INTEGER,
+    mpaa TEXT,
+    director TEXT
+) ;
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+) ; 
+
+CREATE TABLE roles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    r_name TEXT,
+    movie_id INTEGER,
+    actor_id INTEGER
+) ; 
+
+
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+INSERT INTO movies (
+  title,
+  year,
+  mpaa,
+  director
+)
+VALUES (
+  "Batman Begins",
+  "2005",
+  "PG-13",
+  "Christopher Nolan"
+);
+
+INSERT INTO movies (
+  title,
+  year,
+  mpaa,
+  director
+)
+VALUES (
+  "The Dark Knight",
+  "2008",
+  "PG-13",
+  "Christopher Nolan"
+);
+
+INSERT INTO movies (
+  title,
+  year,
+  mpaa,
+  director
+)
+VALUES (
+  "The Dark Knight Rises",
+  "2012",
+  "PG-13",
+  "Christopher Nolan"
+);
+
+INSERT INTO actors (name)
+VALUES ("Christian Bale");
+
+INSERT INTO actors (name)
+VALUES ("Michael Caine");
+
+INSERT INTO actors (name)
+VALUES ("Liam Neeson");
+
+INSERT INTO actors (name)
+VALUES ("Katie Holmes");
+
+INSERT INTO actors (name)
+VALUES ("Gary Oldman");
+
+INSERT INTO actors (name)
+VALUES ("Heath Ledger");
+
+INSERT INTO actors (name)
+VALUES ("Aaron Eckhart");
+
+INSERT INTO actors (name)
+VALUES ("Maggie Gyllenhall");
+
+INSERT INTO actors (name)
+VALUES ("Tom Hardy");
+
+INSERT INTO actors (name)
+VALUES ("Joseph Gordon-Levitt");
+
+INSERT INTO actors (name)
+VALUES ("Anne Hathaway");
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Bruce Wayne",
+    1,
+    1
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Bruce Wayne",
+    2,
+    1
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Bruce Wayne",
+    3,
+    1
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Alfred",
+    1,
+    2
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Alfred",
+    2,
+    2
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Alfred",
+    3,
+    2
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Ras Al Ghul",
+    1,
+    3
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Rachel Dawes",
+    1,
+    4
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Commissioner",
+    1,
+    5
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Commissioner",
+    3,
+    5
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Joker",
+    2,
+    6
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Harvey Dent",
+    2,
+    7
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Rachel Dawes",
+    2,
+    8
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Bane",
+    3,
+    9
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "John Blake",
+    3,
+    10
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Selina Kyle",
+    3,
+    11
+);
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -83,6 +354,9 @@
 
 -- The SQL statement for the movies output
 -- TODO!
+
+SELECT movies.title, movies.year, movies.mpaa, movies.director 
+FROM movies ; 
 
 -- Prints a header for the cast output
 .print ""
@@ -93,3 +367,8 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movies.title, actors.name, roles.r_name
+FROM roles 
+INNER JOIN actors ON actors.id = roles.actor_id
+INNER JOIN movies ON movies.id = roles.movie_id ; 
