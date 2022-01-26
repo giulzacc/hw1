@@ -187,52 +187,8 @@ INSERT INTO roles (
     actor_id
 )
 VALUES (
-    "Bruce Wayne",
-    2,
-    1
-);
-
-INSERT INTO roles (
-    r_name,
-    movie_id,
-    actor_id
-)
-VALUES (
-    "Bruce Wayne",
-    3,
-    1
-);
-
-INSERT INTO roles (
-    r_name,
-    movie_id,
-    actor_id
-)
-VALUES (
     "Alfred",
     1,
-    2
-);
-
-INSERT INTO roles (
-    r_name,
-    movie_id,
-    actor_id
-)
-VALUES (
-    "Alfred",
-    2,
-    2
-);
-
-INSERT INTO roles (
-    r_name,
-    movie_id,
-    actor_id
-)
-VALUES (
-    "Alfred",
-    3,
     2
 );
 
@@ -269,16 +225,18 @@ VALUES (
     5
 );
 
+
 INSERT INTO roles (
     r_name,
     movie_id,
     actor_id
 )
 VALUES (
-    "Commissioner",
-    3,
-    5
+    "Bruce Wayne",
+    2,
+    1
 );
+
 
 INSERT INTO roles (
     r_name,
@@ -302,6 +260,18 @@ VALUES (
     7
 );
 
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Alfred",
+    2,
+    2
+);
+
 INSERT INTO roles (
     r_name,
     movie_id,
@@ -311,6 +281,28 @@ VALUES (
     "Rachel Dawes",
     2,
     8
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Bruce Wayne",
+    3,
+    1
+);
+
+INSERT INTO roles (
+    r_name,
+    movie_id,
+    actor_id
+)
+VALUES (
+    "Commissioner",
+    3,
+    5
 );
 
 INSERT INTO roles (
